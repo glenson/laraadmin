@@ -47,7 +47,7 @@
 					--}}
                     <br>
 					<div class="form-group">
-						{!! Form::submit( 'Update', ['class'=>'btn btn-success']) !!} <a href="{{ url(config('laraadmin.adminRoute') . '/organizations') }}" class="btn btn-default pull-right">Cancel</a>
+						{!! Form::submit( 'Update', ['class'=>'btn btn-success pull-right']) !!} <a href="{{ url(config('laraadmin.adminRoute') . '/organizations') }}" class="btn btn-default pull-left">Cancel</a>
 					</div>
 				{!! Form::close() !!}
 			</div>

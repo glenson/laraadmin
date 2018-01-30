@@ -18,6 +18,15 @@ table.dataTable {
   border-collapse: separate !important;
   font-size: 14px;
 }
+
+table.dataTable thead tr th:first-child{
+  min-width:15px !important;
+}
+
+table.dataTable thead tr th:last-child{
+  min-width:50px !important;
+}
+
 table.dataTable td,
 table.dataTable th {
   -webkit-box-sizing: content-box;

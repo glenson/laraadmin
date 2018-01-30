@@ -102,7 +102,7 @@ use Dwij\Laraadmin\Models\ModuleFields;
 							<th>Required</th>
 							<th>Listing</th>
 							<th style="max-width:300px;">Values</th>
-							<th style="min-width:60px;"><i class="fa fa-cogs"></i></th>
+							<th style="min-width:50px;"><i class="fa fa-cogs"></i></th>
 						</tr>
 						</thead>
 						<tbody>														
@@ -128,11 +128,13 @@ use Dwij\Laraadmin\Models\ModuleFields;
 									</td>
 									<td style="max-width:300px;"><?php echo LAHelper::parseValues($field['popup_vals']) ?></td>
 									<td style="min-width:60px;">
-										<a href="{{ url(config('laraadmin.adminRoute') . '/module_fields/'.$field['id'].'/edit') }}" class="btn btn-edit-field btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;" id="edit_{{ $field['colname'] }}"><i class="fa fa-edit"></i></a>
-										<a href="{{ url(config('laraadmin.adminRoute') . '/module_fields/'.$field['id'].'/delete') }}" class="btn btn-edit-field btn-danger btn-xs" style="display:inline;padding:2px 5px 3px 5px;" id="delete_{{ $field['colname'] }}"><i class="fa fa-trash"></i></a>
+										<div class="btn-group">
+										<a href="{{ url(config('laraadmin.adminRoute') . '/module_fields/'.$field['id'].'/edit') }}" class="btn btn-edit-field btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;width:25px;" id="edit_{{ $field['colname'] }}"><i class="fa fa-edit"></i></a>
+										<a href="{{ url(config('laraadmin.adminRoute') . '/module_fields/'.$field['id'].'/delete') }}" class="btn btn-edit-field btn-danger btn-xs" style="display:inline;padding:2px 5px 3px 5px;width:25px;" id="delete_{{ $field['colname'] }}"><i class="fa fa-trash"></i></a>
 										@if($field['colname'] != $module->view_col)
-											<a href="{{ url(config('laraadmin.adminRoute') . '/modules/'.$module->id.'/set_view_col/'.$field['colname']) }}" class="btn btn-edit-field btn-success btn-xs" style="display:inline;padding:2px 5px 3px 5px;" id="view_col_{{ $field['colname'] }}"><i class="fa fa-eye"></i></a>
+											<a href="{{ url(config('laraadmin.adminRoute') . '/modules/'.$module->id.'/set_view_col/'.$field['colname']) }}" class="btn btn-edit-field btn-success btn-xs" style="display:inline;padding:2px 5px 3px 5px;width:25px;" id="view_col_{{ $field['colname'] }}"><i class="fa fa-eye"></i></a>
 										@endif
+										</div>
 									</td>
 								</tr>
 							@endforeach
@@ -362,8 +364,8 @@ use Dwij\Laraadmin\Models\ModuleFields;
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+				{!! Form::submit( 'Submit', ['class'=>'btn btn-success pull-right']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>

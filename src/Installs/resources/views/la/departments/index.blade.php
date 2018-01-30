@@ -66,8 +66,8 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+				{!! Form::submit( 'Submit', ['class'=>'btn btn-success pull-right']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>

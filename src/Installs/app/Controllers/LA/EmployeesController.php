@@ -275,16 +275,34 @@ class EmployeesController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Employees", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/employees/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
-				}
-				
-				if(Module::hasAccess("Employees", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.employees.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
-					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
-					$output .= Form::close();
-				}
-				$data->data[$i][] = (string)$output;
+                $output .= '<div class="btn-group">';
+                if (Module::hasAccess("Employees", "edit")) {
+                    $output .= '<a href="'.url(config('laraadmin.adminRoute') . '/employees/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;width:25px;"><i class="fa fa-edit"></i></a>';
+                }
+                if (Module::hasAccess("Employees", "delete")) {
+                    $output .= '<a href="#" data-toggle="modal" data-target="#DeleteModal'.$data->data[$i][0].'"  class="btn btn-danger btn-xs" style="display:inline;padding:2px 5px 3px 5px;width:25px;"><i class="fa fa-times"></i></a>';
+                }
+                $output .= '</div>';
+                if (Module::hasAccess("Employees", "delete")) {
+                    $output .= '<div class="modal fade" id="DeleteModal'.$data->data[$i][0].'" role="dialog" aria-labelledby="myModalLabel">';
+                    $output .= '    <div class="modal-dialog" role="document">';
+                    $output .= '         <div class="modal-content">';
+                    $output .= '            <div class="modal-header">';
+                    $output .= '                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+                    $output .= '                <h4 class="modal-title" id="myModalLabel">Employees delete confirmation</h4>';
+                    $output .= '            </div>';
+                    $output .= '			<div class="modal-body"> Are you sure you want to delete this entry? </div>';
+                    $output .= '           <div class="modal-footer">';
+                    $output .= '                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">No</button>';
+                    $output .=                  Form::open(['route' => [config('laraadmin.adminRoute') . '.employees.destroy',$data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+                    $output .= '                    <button class="btn btn-danger pull-right" type="submit">Yes</button>';
+                    $output .=                  Form::close();
+                    $output .= '            </div>';
+                    $output .= '       </div>';
+                    $output .= '   </div>';
+                    $output .= '</div>';
+                }
+                $data->data[$i][] = (string)$output;
 			}
 		}
 		$out->setData($data);

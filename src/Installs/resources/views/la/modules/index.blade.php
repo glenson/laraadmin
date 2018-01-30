@@ -38,11 +38,13 @@ use Dwij\Laraadmin\Models\Module;
 					<td><a href="{{ url(config('laraadmin.adminRoute') . '/modules/'.$module->id) }}">{{ $module->label }}</a></td>
 					<td>{{ $module->name_db }}</td>
 					<td>{{ Module::itemCount($module->name) }}</td>
-					<td>
-						<a module_label="{{ $module->label }}" module_icon="{{ $module->fa_icon }}" module_id="{{ $module->id }}" class="btn btn-primary btn-xs update_module" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>
-						<a href="{{ url(config('laraadmin.adminRoute') . '/modules/'.$module->id)}}#access" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-key"></i></a>
-						<a href="{{ url(config('laraadmin.adminRoute') . '/modules/'.$module->id)}}#sort" class="btn btn-success btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-sort"></i></a>
-						<a module_name="{{ $module->name }}" module_id="{{ $module->id }}" class="btn btn-danger btn-xs delete_module" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-trash"></i></a>
+					<td width="100px">
+               			<div class="btn-group">
+							<a module_label="{{ $module->label }}" module_icon="{{ $module->fa_icon }}" module_id="{{ $module->id }}" class="btn btn-primary btn-xs update_module" style="display:inline;padding:2px 5px 3px 5px;width:25px;"><i class="fa fa-edit"></i></a>
+							<a href="{{ url(config('laraadmin.adminRoute') . '/modules/'.$module->id)}}#access" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;width:25px;"><i class="fa fa-key"></i></a>
+							<a href="{{ url(config('laraadmin.adminRoute') . '/modules/'.$module->id)}}#sort" class="btn btn-success btn-xs" style="display:inline;padding:2px 5px 3px 5px;width:25px;"><i class="fa fa-sort"></i></a>
+							<a module_name="{{ $module->name }}" module_id="{{ $module->id }}" class="btn btn-danger btn-xs delete_module" style="display:inline;padding:2px 5px 3px 5px;width:25px;"><i class="fa fa-trash"></i></a>
+               			</div>
 					</td>
 				</tr>
 			@endforeach
@@ -89,8 +91,8 @@ use Dwij\Laraadmin\Models\Module;
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+				{!! Form::submit( 'Submit', ['class'=>'btn btn-success pull-right']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>
@@ -121,8 +123,8 @@ use Dwij\Laraadmin\Models\Module;
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+				{!! Form::submit( 'Submit', ['class'=>'btn btn-success pull-right']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>
