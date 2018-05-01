@@ -165,7 +165,7 @@ class ModuleController extends Controller
         }
         
         // Delete Admin Routes
-        if(LAHelper::laravel_ver() == 5.3 || LAHelper::laravel_ver() == 5.4 || LAHelper::laravel_ver() == 5.5) {
+        if(LAHelper::laravel_ver() == 5.3 || LAHelper::laravel_ver() == 5.4 || LAHelper::laravel_ver() == 5.5 || LAHelper::laravel_ver() == 5.6) {
             $file_admin_routes = base_path("/routes/admin_routes.php");
         } else {
             $file_admin_routes = base_path("/app/Http/admin_routes.php");
